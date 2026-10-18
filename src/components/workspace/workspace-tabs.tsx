@@ -11,13 +11,16 @@ const tabs = {
   Payments: ["Owner payment confirmed", "KP payout queued", "Influencer payout release after sign-off"]
 };
 
+// Perf optimization: Hoist static array of tab keys outside component scope to avoid array allocations on re-render
+const TAB_NAMES = Object.keys(tabs) as (keyof typeof tabs)[];
+
 export function WorkspaceTabs() {
   const [active, setActive] = useState<keyof typeof tabs>("Overview");
 
   return (
     <div className="card-border bg-surface rounded-[1.8rem] p-6">
       <div className="flex flex-wrap gap-2">
-        {Object.keys(tabs).map((tab) => (
+        {TAB_NAMES.map((tab) => (
           <button
             key={tab}
             type="button"

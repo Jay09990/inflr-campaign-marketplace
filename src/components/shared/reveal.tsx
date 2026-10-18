@@ -14,17 +14,24 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
   useEffect(() => {
     if (!ref.current) return;
 
-    gsap.fromTo(
-      ref.current,
-      { y: 24, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        delay,
-        duration: 0.8,
-        ease: "power3.out",
-      },
-    );
+    // Perf optimization: Scoping animations within gsap.context allows reverting/killing
+    // active tweens when the component unmounts or delay changes. This prevents memory leaks,
+    // orphaned ticker updates, and inline style residue during Next.js client-side navigations.
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ref.current,
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          delay,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      );
+    }, ref);
+
+    return () => ctx.revert();
   }, [delay]);
 
   return <div ref={ref}>{children}</div>;

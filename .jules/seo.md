@@ -1,0 +1,3 @@
+## 2026-05-19 - Next.js App Router Metadata & Crawl Configuration
+**Learning:** Next.js App Router requires explicit `robots.ts` and `sitemap.ts` files to guide search engines and AI crawlers to public routes while keeping private application cockpits (`/admin`, `/owner`, `/kp`, `/influencer`, `/workspace`) and auth routes (`/login`, `/signup`, `/forgot-password`) out of the index. Setting `metadataBase` in root layout is critical for resolving absolute URLs in metadata and sitemaps.
+**Action:** Always provide `metadataBase` in `layout.tsx` when configuring dynamic `sitemap.ts` or relative canonical links, and use App Router native conventions for `robots.ts` and `sitemap.ts`.

@@ -14,17 +14,22 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
   useEffect(() => {
     if (!ref.current) return;
 
-    gsap.fromTo(
-      ref.current,
-      { y: 24, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        delay,
-        duration: 0.8,
-        ease: "power3.out",
-      },
-    );
+    // Use gsap.context for proper memory cleanup and animation teardown on unmount
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ref.current,
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          delay,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      );
+    }, ref);
+
+    return () => ctx.revert();
   }, [delay]);
 
   return <div ref={ref}>{children}</div>;

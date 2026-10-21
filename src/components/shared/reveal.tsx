@@ -14,7 +14,8 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
   useEffect(() => {
     if (!ref.current) return;
 
-    // Use gsap.context for proper memory cleanup and animation teardown on unmount
+    // Use gsap.context to properly scope and clean up GSAP animations on unmount/re-render.
+    // Reverting context kills active tweens and prevents memory leaks / lingering frame callbacks.
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ref.current,

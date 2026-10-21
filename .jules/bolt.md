@@ -1,3 +1,3 @@
-## 2025-03-30 - GSAP context cleanup in React components
-**Learning:** Instantiating GSAP tweens (like `gsap.fromTo`) inside `useEffect` without `gsap.context()` leaves active tweens registered in GSAP's global ticker on unmount and re-renders, causing memory leaks and unnecessary main-thread ticker ticks.
-**Action:** Always wrap GSAP animations in `gsap.context(() => { ... }, scopeRef)` and return `() => ctx.revert()` in `useEffect` cleanup.
+## 2025-05-18 - Clean up GSAP context in React useEffect hooks
+**Learning:** GSAP animations triggered inside React `useEffect` without `gsap.context()` cleanup leak active tweens and ticker callbacks into memory when components unmount or re-render during client routing.
+**Action:** Always wrap GSAP animations in `gsap.context(() => { ... }, ref)` and return `() => ctx.revert()` in the `useEffect` cleanup function.

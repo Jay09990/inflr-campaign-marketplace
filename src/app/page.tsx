@@ -1,9 +1,32 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Connect Business Owners & Creators",
+  description:
+    "A 3-sided campaign marketplace connecting business owners, niche knowledge strategists, and micro-influencers to build and execute high-performing campaigns.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Connect Business Owners & Creators",
+    description:
+      "A 3-sided campaign marketplace connecting business owners, niche knowledge strategists, and micro-influencers.",
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campaign Marketplace | Connect Business Owners & Creators",
+    description:
+      "A 3-sided campaign marketplace connecting business owners, niche knowledge strategists, and micro-influencers.",
+  },
+};
 
 export default function HomePage() {
   return (

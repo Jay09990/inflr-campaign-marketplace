@@ -14,6 +14,9 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
   useEffect(() => {
     if (!ref.current) return;
 
+    // Skip animation processing when reduced motion is preferred
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
+
     // Use gsap.context to properly scope and clean up GSAP animations on unmount/re-render.
     // Reverting context kills active tweens and prevents memory leaks / lingering frame callbacks.
     const ctx = gsap.context(() => {

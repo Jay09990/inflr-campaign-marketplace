@@ -11,6 +11,9 @@ export function Hero() {
   useEffect(() => {
     if (!rootRef.current) return;
 
+    // Skip animation processing when reduced motion is preferred
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         "[data-hero='line']",

@@ -16,8 +16,9 @@ export function CreateCampaignWizard() {
             <button
               key={item}
               type="button"
+              aria-current={step === index ? "step" : undefined}
               onClick={() => setStep(index)}
-              className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
+              className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)] ${
                 step === index ? "bg-[var(--ink)] text-white" : "border border-[var(--line)] bg-white/70"
               }`}
             >
@@ -39,11 +40,11 @@ export function CreateCampaignWizard() {
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           <label className="grid gap-2 text-sm font-medium">
             Campaign title
-            <input className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3" defaultValue="Cafe Mysa brunch relaunch" />
+            <input className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]" defaultValue="Cafe Mysa brunch relaunch" />
           </label>
           <label className="grid gap-2 text-sm font-medium">
             Business category
-            <select className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3">
+            <select className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]">
               <option>Food and Beverage</option>
               <option>Beauty</option>
               <option>Education</option>
@@ -51,29 +52,29 @@ export function CreateCampaignWizard() {
           </label>
           <label className="grid gap-2 text-sm font-medium">
             Target geography
-            <input className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3" defaultValue="Ahmedabad" />
+            <input className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]" defaultValue="Ahmedabad" />
           </label>
           <label className="grid gap-2 text-sm font-medium">
             Success metric
-            <input className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3" defaultValue="Coupon redemptions + DM inquiries" />
+            <input className="rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]" defaultValue="Coupon redemptions + DM inquiries" />
           </label>
           <label className="grid gap-2 text-sm font-medium md:col-span-2">
             Brief notes
-            <textarea className="min-h-32 rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3" defaultValue="Weekend brunch positioning, premium but approachable tone, focus on local discovery and code-based visits." />
+            <textarea className="min-h-32 rounded-2xl border border-[var(--line)] bg-white/80 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]" defaultValue="Weekend brunch positioning, premium but approachable tone, focus on local discovery and code-based visits." />
           </label>
         </div>
         <div className="mt-6 flex flex-wrap justify-between gap-3">
           <button
             type="button"
             onClick={() => setStep((current) => Math.max(0, current - 1))}
-            className="rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-semibold"
+            className="rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]"
           >
             Previous
           </button>
           <button
             type="button"
             onClick={() => setStep((current) => Math.min(steps.length - 1, current + 1))}
-            className="rounded-full bg-[var(--accent-strong)] px-5 py-2.5 text-sm font-semibold text-white"
+            className="rounded-full bg-[var(--accent-strong)] px-5 py-2.5 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]"
           >
             {step === steps.length - 1 ? "Publish demo brief" : "Next step"}
           </button>

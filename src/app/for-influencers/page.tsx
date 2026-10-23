@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Influencers & Creators | Campaign Marketplace",
+  description:
+    "Get clear campaign briefs, scoped deliverables, transparent payout tracking, and seamless communication with Knowledge Persons.",
+  alternates: {
+    canonical: "/for-influencers",
+  },
+  openGraph: {
+    title: "For Influencers & Creators | Campaign Marketplace",
+    description:
+      "Get clear campaign briefs, scoped deliverables, transparent payout tracking, and seamless communication with Knowledge Persons.",
+    url: "/for-influencers",
+  },
+};
 
 export default function InfluencersLandingPage() {
   return (

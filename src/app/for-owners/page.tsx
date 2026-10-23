@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Business Owners | Campaign Marketplace",
+  description:
+    "Buy structured influencer marketing campaigns without creator chaos. Publish briefs, compare pitches, and track results.",
+  alternates: {
+    canonical: "/for-owners",
+  },
+  openGraph: {
+    title: "For Business Owners | Campaign Marketplace",
+    description:
+      "Buy structured influencer marketing campaigns without creator chaos. Publish briefs, compare pitches, and track results.",
+    url: "/for-owners",
+  },
+};
 
 export default function OwnersLandingPage() {
   return (

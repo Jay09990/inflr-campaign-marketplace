@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Knowledge Persons (KPs) | Campaign Marketplace",
+  description:
+    "Monetize strategy and domain expertise by pitching campaign concepts, building creator teams, and leading campaign delivery.",
+  alternates: {
+    canonical: "/for-kps",
+  },
+  openGraph: {
+    title: "For Knowledge Persons (KPs) | Campaign Marketplace",
+    description:
+      "Monetize strategy and domain expertise by pitching campaign concepts, building creator teams, and leading campaign delivery.",
+    url: "/for-kps",
+  },
+};
 
 export default function KpsLandingPage() {
   return (

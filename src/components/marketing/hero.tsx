@@ -12,15 +12,16 @@ export function Hero() {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
+      // force3D: true hardware accelerates GSAP stagger animations on GPU compositing layers, clearing temporary GPU properties when complete
       gsap.fromTo(
         "[data-hero='line']",
         { y: 42, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.12, duration: 0.9, ease: "power3.out" },
+        { y: 0, opacity: 1, stagger: 0.12, duration: 0.9, ease: "power3.out", force3D: true, clearProps: "willChange" },
       );
       gsap.fromTo(
         "[data-hero='card']",
         { y: 28, opacity: 0, rotate: -2 },
-        { y: 0, opacity: 1, rotate: 0, stagger: 0.08, duration: 0.8, delay: 0.25, ease: "power3.out" },
+        { y: 0, opacity: 1, rotate: 0, stagger: 0.08, duration: 0.8, delay: 0.25, ease: "power3.out", force3D: true, clearProps: "willChange" },
       );
     }, rootRef);
 

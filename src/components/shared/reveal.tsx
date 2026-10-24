@@ -26,6 +26,10 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
           delay,
           duration: 0.8,
           ease: "power3.out",
+          // Force 3D transform (translate3d) for GPU hardware acceleration during animation,
+          // then clear willChange/transform props upon completion to free GPU memory.
+          force3D: true,
+          clearProps: "willChange",
         },
       );
     }, ref);

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
@@ -5,9 +6,60 @@ import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://campaignmarketplace.com";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Influencer Campaign Operating System",
+  description:
+    "Launch influencer marketing campaigns with verified Knowledge Persons (KPs), clear KPIs, and controlled campaign execution workflows.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Influencer Campaign Operating System",
+    description:
+      "Launch influencer marketing campaigns with verified Knowledge Persons (KPs), clear KPIs, and controlled campaign execution workflows.",
+    url: "/",
+    siteName: "Campaign Marketplace",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campaign Marketplace | Influencer Campaign Operating System",
+    description:
+      "Launch influencer marketing campaigns with verified Knowledge Persons (KPs), clear KPIs, and controlled campaign execution workflows.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "Campaign Marketplace",
+      "description":
+        "Connecting business owners, Knowledge Persons, and influencers into one controlled campaign operating system.",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "Campaign Marketplace",
+      "url": siteUrl,
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <PublicShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
       <section id="how-it-works" className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
         <Reveal>

@@ -1,6 +1,27 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Brand Owners",
+  description:
+    "Buy campaign outcomes without creator chaos. Publish briefs, select vetted KP pitches, and track campaign execution from one dashboard.",
+  alternates: {
+    canonical: "/for-owners",
+  },
+  openGraph: {
+    title: "For Brand Owners | Campaign Marketplace",
+    description:
+      "Buy campaign outcomes without creator chaos. Publish briefs, select vetted KP pitches, and track campaign execution from one dashboard.",
+    url: "/for-owners",
+  },
+  twitter: {
+    title: "For Brand Owners | Campaign Marketplace",
+    description:
+      "Buy campaign outcomes without creator chaos. Publish briefs, select vetted KP pitches, and track campaign execution from one dashboard.",
+  },
+};
 
 export default function OwnersLandingPage() {
   return (

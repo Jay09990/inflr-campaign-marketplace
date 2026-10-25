@@ -1,4 +1,25 @@
-﻿import { PublicShell } from "@/components/marketing/public-shell";
+import type { Metadata } from "next";
+import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the Privacy Policy for Campaign Marketplace regarding data processing, platform consent, and privacy commitments.",
+  alternates: {
+    canonical: "/legal/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Campaign Marketplace",
+    description:
+      "Read the Privacy Policy for Campaign Marketplace regarding data processing, platform consent, and privacy commitments.",
+    url: "/legal/privacy",
+  },
+  twitter: {
+    title: "Privacy Policy | Campaign Marketplace",
+    description:
+      "Read the Privacy Policy for Campaign Marketplace regarding data processing, platform consent, and privacy commitments.",
+  },
+};
 
 export default function PrivacyPage() {
   return (

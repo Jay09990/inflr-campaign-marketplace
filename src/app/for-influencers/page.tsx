@@ -1,6 +1,27 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Influencers",
+  description:
+    "Get clear campaign briefs, scoped deliverables, transparent timelines, and payout protection without direct client friction.",
+  alternates: {
+    canonical: "/for-influencers",
+  },
+  openGraph: {
+    title: "For Influencers | Campaign Marketplace",
+    description:
+      "Get clear campaign briefs, scoped deliverables, transparent timelines, and payout protection without direct client friction.",
+    url: "/for-influencers",
+  },
+  twitter: {
+    title: "For Influencers | Campaign Marketplace",
+    description:
+      "Get clear campaign briefs, scoped deliverables, transparent timelines, and payout protection without direct client friction.",
+  },
+};
 
 export default function InfluencersLandingPage() {
   return (

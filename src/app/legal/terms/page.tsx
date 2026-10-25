@@ -1,4 +1,25 @@
-﻿import { PublicShell } from "@/components/marketing/public-shell";
+import type { Metadata } from "next";
+import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Read the Terms of Service for Campaign Marketplace governing platform usage, campaign terms, and party obligations.",
+  alternates: {
+    canonical: "/legal/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | Campaign Marketplace",
+    description:
+      "Read the Terms of Service for Campaign Marketplace governing platform usage, campaign terms, and party obligations.",
+    url: "/legal/terms",
+  },
+  twitter: {
+    title: "Terms of Service | Campaign Marketplace",
+    description:
+      "Read the Terms of Service for Campaign Marketplace governing platform usage, campaign terms, and party obligations.",
+  },
+};
 
 export default function TermsPage() {
   return (

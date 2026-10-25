@@ -1,5 +1,18 @@
 import type { NextConfig } from "next";
 
+const cspHeader = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' blob: data:",
+  "font-src 'self' data:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async headers() {
@@ -7,6 +20,14 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: [
+          {
+            key: "Content-Security-Policy",
+            value: cspHeader,
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
           {
             key: "X-Frame-Options",
             value: "DENY",

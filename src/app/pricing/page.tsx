@@ -1,6 +1,27 @@
-﻿import { Panel } from "@/components/dashboard/panel";
+import type { Metadata } from "next";
+import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { pricingPlans } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Pricing & Monetization",
+  description:
+    "Explore transparent pricing plans for campaign owners, Knowledge Persons, and micro-influencers with performance-based monetization.",
+  alternates: {
+    canonical: "/pricing",
+  },
+  openGraph: {
+    title: "Pricing & Monetization | Campaign Marketplace",
+    description:
+      "Explore transparent pricing plans for campaign owners, Knowledge Persons, and micro-influencers with performance-based monetization.",
+    url: "/pricing",
+  },
+  twitter: {
+    title: "Pricing & Monetization | Campaign Marketplace",
+    description:
+      "Explore transparent pricing plans for campaign owners, Knowledge Persons, and micro-influencers with performance-based monetization.",
+  },
+};
 
 export default function PricingPage() {
   return (

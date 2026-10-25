@@ -1,6 +1,27 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Knowledge Persons",
+  description:
+    "Turn niche understanding into campaign leadership. Pitch strategy, assemble creator teams, and manage project delivery from one cockpit.",
+  alternates: {
+    canonical: "/for-kps",
+  },
+  openGraph: {
+    title: "For Knowledge Persons | Campaign Marketplace",
+    description:
+      "Turn niche understanding into campaign leadership. Pitch strategy, assemble creator teams, and manage project delivery from one cockpit.",
+    url: "/for-kps",
+  },
+  twitter: {
+    title: "For Knowledge Persons | Campaign Marketplace",
+    description:
+      "Turn niche understanding into campaign leadership. Pitch strategy, assemble creator teams, and manage project delivery from one cockpit.",
+  },
+};
 
 export default function KpsLandingPage() {
   return (

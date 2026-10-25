@@ -1,6 +1,27 @@
-﻿import { Panel } from "@/components/dashboard/panel";
+import type { Metadata } from "next";
+import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Trust & Safety",
+  description:
+    "Learn about our trust pillars, manual verification steps, transparent payout flows, and dispute handling mechanisms.",
+  alternates: {
+    canonical: "/trust",
+  },
+  openGraph: {
+    title: "Trust & Safety | Campaign Marketplace",
+    description:
+      "Learn about our trust pillars, manual verification steps, transparent payout flows, and dispute handling mechanisms.",
+    url: "/trust",
+  },
+  twitter: {
+    title: "Trust & Safety | Campaign Marketplace",
+    description:
+      "Learn about our trust pillars, manual verification steps, transparent payout flows, and dispute handling mechanisms.",
+  },
+};
 
 export default function TrustPage() {
   return (

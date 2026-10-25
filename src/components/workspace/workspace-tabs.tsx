@@ -11,13 +11,18 @@ const tabs = {
   Payments: ["Owner payment confirmed", "KP payout queued", "Influencer payout release after sign-off"]
 };
 
+type TabName = keyof typeof tabs;
+
+// Statically define tab names outside component to avoid object allocation during render cycles.
+const TAB_NAMES = Object.keys(tabs) as TabName[];
+
 export function WorkspaceTabs() {
-  const [active, setActive] = useState<keyof typeof tabs>("Overview");
+  const [active, setActive] = useState<TabName>("Overview");
 
   return (
     <div className="card-border bg-surface rounded-[1.8rem] p-6">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Workspace sections">
-        {Object.keys(tabs).map((tab) => {
+        {TAB_NAMES.map((tab) => {
           const tabId = `tab-${tab.toLowerCase()}`;
           const panelId = `panel-${tab.toLowerCase()}`;
           const isSelected = active === tab;
@@ -30,7 +35,7 @@ export function WorkspaceTabs() {
               role="tab"
               aria-selected={isSelected}
               aria-controls={panelId}
-              onClick={() => setActive(tab as keyof typeof tabs)}
+              onClick={() => setActive(tab)}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)] ${
                 isSelected ? "bg-[var(--ink)] text-white" : "border border-[var(--line)] bg-white/80 hover:bg-white"
               }`}

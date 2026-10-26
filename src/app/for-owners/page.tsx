@@ -1,6 +1,16 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Business Owners",
+  description:
+    "Publish briefs, review strategic pitches, and run influencer marketing campaigns without creator management chaos.",
+  alternates: {
+    canonical: "/for-owners",
+  },
+};
 
 export default function OwnersLandingPage() {
   return (

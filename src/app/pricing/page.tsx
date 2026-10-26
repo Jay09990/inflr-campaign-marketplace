@@ -1,6 +1,16 @@
-﻿import { Panel } from "@/components/dashboard/panel";
+import type { Metadata } from "next";
+import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { pricingPlans } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Pricing Plans",
+  description:
+    "Transparent marketplace monetization for business owners, Knowledge Persons, and micro-influencer campaign teams.",
+  alternates: {
+    canonical: "/pricing",
+  },
+};
 
 export default function PricingPage() {
   return (

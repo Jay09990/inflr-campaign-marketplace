@@ -9,17 +9,25 @@ const tabs = {
   Deliverables: ["2 reels approved", "1 story pack pending", "Owner feedback applied"],
   Chat: ["Draft captions are locked.", "Need final export by tonight.", "Owner wants stronger coupon CTA."],
   Payments: ["Owner payment confirmed", "KP payout queued", "Influencer payout release after sign-off"]
-};
+} as const;
+
+type TabKey = keyof typeof tabs;
+
+// Performance optimization: Extract static tab keys array outside the component.
+// This prevents calling Object.keys(tabs) and allocating a new array instance on every component render / state update.
+const TAB_KEYS = Object.keys(tabs) as TabKey[];
 
 export function WorkspaceTabs() {
-  const [active, setActive] = useState<keyof typeof tabs>("Overview");
+  const [active, setActive] = useState<TabKey>("Overview");
+  const activeLower = active.toLowerCase();
 
   return (
     <div className="card-border bg-surface rounded-[1.8rem] p-6">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Workspace sections">
-        {Object.keys(tabs).map((tab) => {
-          const tabId = `tab-${tab.toLowerCase()}`;
-          const panelId = `panel-${tab.toLowerCase()}`;
+        {TAB_KEYS.map((tab) => {
+          const tabLower = tab.toLowerCase();
+          const tabId = `tab-${tabLower}`;
+          const panelId = `panel-${tabLower}`;
           const isSelected = active === tab;
 
           return (
@@ -30,7 +38,7 @@ export function WorkspaceTabs() {
               role="tab"
               aria-selected={isSelected}
               aria-controls={panelId}
-              onClick={() => setActive(tab as keyof typeof tabs)}
+              onClick={() => setActive(tab)}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)] ${
                 isSelected ? "bg-[var(--ink)] text-white" : "border border-[var(--line)] bg-white/80 hover:bg-white"
               }`}
@@ -41,9 +49,9 @@ export function WorkspaceTabs() {
         })}
       </div>
       <div
-        id={`panel-${active.toLowerCase()}`}
+        id={`panel-${activeLower}`}
         role="tabpanel"
-        aria-labelledby={`tab-${active.toLowerCase()}`}
+        aria-labelledby={`tab-${activeLower}`}
         className="mt-6 grid gap-3"
       >
         {tabs[active].map((item) => (

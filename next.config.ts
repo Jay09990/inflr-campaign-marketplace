@@ -27,6 +27,22 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          // Security Enhancement: Content Security Policy to restrict resource loading and prevent XSS
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';",
+          },
+          // Security Enhancement: Anti-XSS filter header for older browsers
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          // Security Enhancement: Prevent cross-origin window leaks and isolation
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
+          },
         ],
       },
     ];

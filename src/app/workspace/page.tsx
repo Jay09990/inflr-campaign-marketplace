@@ -1,8 +1,17 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Reveal } from "@/components/shared/reveal";
 import { WorkspaceTabs } from "@/components/workspace/workspace-tabs";
 import { workspaceTimeline } from "@/data/mock";
+
+// Private workspace route: must not be indexed by search engines
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function WorkspacePage() {
   return (

@@ -1,4 +1,14 @@
-﻿import { PublicShell } from "@/components/marketing/public-shell";
+import type { Metadata } from "next";
+import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "Contact & Demo | Campaign Marketplace",
+  description:
+    "Get in touch with the Campaign Marketplace team for platform inquiries, stakeholder demos, and partnership walkthroughs.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

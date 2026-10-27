@@ -1,9 +1,18 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { Panel } from "@/components/dashboard/panel";
 import { StatGrid } from "@/components/dashboard/stat-grid";
 import { Reveal } from "@/components/shared/reveal";
 import { influencerMetrics, roleNav } from "@/data/mock";
+
+// Private dashboard route: must not be indexed by search engines
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function InfluencerPage() {
   return (

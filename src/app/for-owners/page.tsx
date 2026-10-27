@@ -1,6 +1,16 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Business Owners | Campaign Marketplace",
+  description:
+    "Publish briefs, compare strategic pitches, lock creator micro-teams, and monitor progress without managing creator chaos.",
+  alternates: {
+    canonical: "/for-owners",
+  },
+};
 
 export default function OwnersLandingPage() {
   return (

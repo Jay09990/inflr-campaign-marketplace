@@ -1,9 +1,19 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Connect Owners, KPs & Influencers",
+  description:
+    "A controlled campaign operating system to publish briefs, pitch strategy, assemble creator micro-teams, and manage payouts.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function HomePage() {
   return (

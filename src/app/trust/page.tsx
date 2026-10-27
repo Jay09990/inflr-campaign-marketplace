@@ -1,6 +1,16 @@
-﻿import { Panel } from "@/components/dashboard/panel";
+import type { Metadata } from "next";
+import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Trust & Safety | Campaign Marketplace",
+  description:
+    "Discover how Campaign Marketplace ensures transparent payments, verified participants, and dispute protection for campaign workflows.",
+  alternates: {
+    canonical: "/trust",
+  },
+};
 
 export default function TrustPage() {
   return (

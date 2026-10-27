@@ -1,5 +1,14 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+// Auth page: must not be indexed by search engines
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function LoginPage() {
   return (

@@ -1,6 +1,16 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Knowledge Persons | Campaign Marketplace",
+  description:
+    "Lead strategy for marketing briefs, assemble micro-teams of creator talent, and direct campaign execution.",
+  alternates: {
+    canonical: "/for-kps",
+  },
+};
 
 export default function KpsLandingPage() {
   return (

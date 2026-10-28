@@ -1,6 +1,26 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Business Owners | Hire Micro-Influencer Teams in India",
+  description:
+    "Post campaign briefs, evaluate strategic pitches from Knowledge Persons, select the best creative strategy, and track ROI without creator chaos.",
+  alternates: {
+    canonical: "/for-owners",
+  },
+  openGraph: {
+    title: "For Business Owners | Hire Micro-Influencer Teams in India",
+    description:
+      "Post campaign briefs, evaluate strategic pitches from Knowledge Persons, select the best creative strategy, and track ROI without creator chaos.",
+    url: "/for-owners",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function OwnersLandingPage() {
   return (

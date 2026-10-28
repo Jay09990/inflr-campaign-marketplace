@@ -1,6 +1,26 @@
-﻿import { Panel } from "@/components/dashboard/panel";
+import type { Metadata } from "next";
+import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { pricingPlans } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Pricing & Plans | Campaign Marketplace",
+  description:
+    "Transparent marketplace monetization designed for real campaigns with performance incentives and zero hidden agency margins.",
+  alternates: {
+    canonical: "/pricing",
+  },
+  openGraph: {
+    title: "Pricing & Plans | Campaign Marketplace",
+    description:
+      "Transparent marketplace monetization designed for real campaigns with performance incentives and zero hidden agency margins.",
+    url: "/pricing",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function PricingPage() {
   return (

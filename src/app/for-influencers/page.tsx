@@ -1,6 +1,26 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Micro-Influencers | Structured Campaign Briefs & Guaranteed Escrow",
+  description:
+    "Join campaign micro-teams matched by niche expertise. Receive clear deliverables, transparent deadlines, and timely payouts.",
+  alternates: {
+    canonical: "/for-influencers",
+  },
+  openGraph: {
+    title: "For Micro-Influencers | Structured Campaign Briefs & Guaranteed Escrow",
+    description:
+      "Join campaign micro-teams matched by niche expertise. Receive clear deliverables, transparent deadlines, and timely payouts.",
+    url: "/for-influencers",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function InfluencersLandingPage() {
   return (

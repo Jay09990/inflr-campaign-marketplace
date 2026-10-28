@@ -1,6 +1,26 @@
-﻿import { Panel } from "@/components/dashboard/panel";
+import type { Metadata } from "next";
+import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Trust & Safety | Escrow & Accountability",
+  description:
+    "Discover how Campaign Marketplace safeguards campaigns with payment escrow, rating systems, and admin dispute moderation.",
+  alternates: {
+    canonical: "/trust",
+  },
+  openGraph: {
+    title: "Trust & Safety | Escrow & Accountability",
+    description:
+      "Discover how Campaign Marketplace safeguards campaigns with payment escrow, rating systems, and admin dispute moderation.",
+    url: "/trust",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function TrustPage() {
   return (

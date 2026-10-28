@@ -1,4 +1,24 @@
-﻿import { PublicShell } from "@/components/marketing/public-shell";
+import type { Metadata } from "next";
+import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "Contact & Demo | Campaign Marketplace",
+  description:
+    "Get in touch for pitch walkthroughs, marketplace partnership opportunities, or stakeholder demonstrations.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact & Demo | Campaign Marketplace",
+    description:
+      "Get in touch for pitch walkthroughs, marketplace partnership opportunities, or stakeholder demonstrations.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function ContactPage() {
   return (

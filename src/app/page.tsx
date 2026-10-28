@@ -1,9 +1,29 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Hire Micro-Influencer Teams in India",
+  description:
+    "Connect business owners, campaign strategists, and niche micro-influencers. Execute outcome-based marketing campaigns with full escrow trust.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Hire Micro-Influencer Teams in India",
+    description:
+      "Connect business owners, campaign strategists, and niche micro-influencers. Execute outcome-based marketing campaigns with full escrow trust.",
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function HomePage() {
   return (

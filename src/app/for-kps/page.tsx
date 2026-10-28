@@ -1,6 +1,26 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
+
+export const metadata: Metadata = {
+  title: "For Knowledge Persons | Lead Influencer Campaign Strategy",
+  description:
+    "Turn niche understanding into campaign leadership. Pitch strategies to business owners, assemble micro-influencer teams, and earn per project.",
+  alternates: {
+    canonical: "/for-kps",
+  },
+  openGraph: {
+    title: "For Knowledge Persons | Lead Influencer Campaign Strategy",
+    description:
+      "Turn niche understanding into campaign leadership. Pitch strategies to business owners, assemble micro-influencer teams, and earn per project.",
+    url: "/for-kps",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function KpsLandingPage() {
   return (

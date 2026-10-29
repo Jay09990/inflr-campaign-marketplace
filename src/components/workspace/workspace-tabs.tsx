@@ -11,13 +11,17 @@ const tabs = {
   Payments: ["Owner payment confirmed", "KP payout queued", "Influencer payout release after sign-off"]
 };
 
+// Hoist tab keys constant outside component render loop to prevent re-allocating
+// new Object.keys array on every state change / tab click.
+const TAB_KEYS = Object.keys(tabs) as Array<keyof typeof tabs>;
+
 export function WorkspaceTabs() {
   const [active, setActive] = useState<keyof typeof tabs>("Overview");
 
   return (
     <div className="card-border bg-surface rounded-[1.8rem] p-6">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Workspace sections">
-        {Object.keys(tabs).map((tab) => {
+        {TAB_KEYS.map((tab) => {
           const tabId = `tab-${tab.toLowerCase()}`;
           const panelId = `panel-${tab.toLowerCase()}`;
           const isSelected = active === tab;

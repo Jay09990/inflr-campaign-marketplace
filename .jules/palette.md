@@ -1,0 +1,3 @@
+## 2025-05-18 - Accessible multi-step wizard navigation and submission feedback
+**Learning:** In prototype/demo-driven wizards, interactive forms often terminate without a clear completion state or leave dead navigation controls enabled (e.g. "Previous" on step 0). Without `aria-current="step"`, screen readers cannot identify the active step, and without `role="status"` live region announcements, form submission feels unresponsive.
+**Action:** Always provide an explicit completion state with `role="status" aria-live="polite"` and a restart action, disable navigation controls at boundaries (`disabled={step === 0}`), and mark the active step with `aria-current="step"`.

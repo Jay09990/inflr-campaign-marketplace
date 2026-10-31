@@ -1,9 +1,34 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Outcome-Driven Creator Platform",
+  description:
+    "Connect local brands with Knowledge Persons and creator squads. Plan briefs, pitch strategies, and run outcome-driven campaigns without agency bloat.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Outcome-Driven Creator Platform",
+    description:
+      "Connect local brands with Knowledge Persons and creator squads. Plan briefs, pitch strategies, and run outcome-driven campaigns without agency bloat.",
+    url: "/",
+    siteName: "Campaign Marketplace",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campaign Marketplace | Outcome-Driven Creator Platform",
+    description:
+      "Connect local brands with Knowledge Persons and creator squads. Plan briefs, pitch strategies, and run outcome-driven campaigns without agency bloat.",
+  },
+};
 
 export default function HomePage() {
   return (

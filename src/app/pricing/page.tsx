@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 ﻿import { Panel } from "@/components/dashboard/panel";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { pricingPlans } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Pricing Plans for Business Campaigns",
+  description:
+    "Explore transparent pricing plans for running influencer marketing campaigns with dedicated Knowledge Person strategy and outcome tracking.",
+  alternates: {
+    canonical: "/pricing",
+  },
+  openGraph: {
+    title: "Pricing Plans for Business Campaigns | Campaign Marketplace",
+    description:
+      "Explore transparent pricing plans for running influencer marketing campaigns with dedicated Knowledge Person strategy and outcome tracking.",
+    url: "/pricing",
+  },
+};
 
 export default function PricingPage() {
   return (

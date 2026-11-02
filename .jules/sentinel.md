@@ -1,0 +1,4 @@
+## 2026-11-02 - Defense-in-depth CSP and COOP in Next.js App Router
+**Vulnerability:** Absence of `Content-Security-Policy` (CSP) and `Cross-Origin-Opener-Policy` (COOP) headers allowed unrestricted resource fetching, inline/eval script injection risks, and cross-origin window reference attacks.
+**Learning:** Next.js client hydration and Turbopack dev runtime require `'unsafe-inline'` and `'unsafe-eval'`, but enforcing strict fallback directives (`default-src 'self'`, `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`) along with `same-origin` COOP establishes robust defense-in-depth against XSS, clickjacking, and cross-origin attacks without breaking React hydration.
+**Prevention:** Always define centralized CSP and COOP HTTP response headers in `next.config.ts` alongside standard transport and framing controls (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `HSTS`, `Permissions-Policy`).

@@ -11,25 +11,26 @@ export function CreateCampaignWizard() {
     <div className="grid gap-6 xl:grid-cols-[0.7fr_1.3fr]">
       <aside className="card-border bg-surface rounded-[1.8rem] p-5">
         <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-strong)]">Campaign setup</div>
-        <div className="mt-5 grid gap-3">
+        <nav aria-label="Campaign wizard steps" className="mt-5 grid gap-3">
           {steps.map((item, index) => (
             <button
               key={item}
               type="button"
+              aria-current={step === index ? "step" : undefined}
               onClick={() => setStep(index)}
-              className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
-                step === index ? "bg-[var(--ink)] text-white" : "border border-[var(--line)] bg-white/70"
+              className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)] ${
+                step === index ? "bg-[var(--ink)] text-white" : "border border-[var(--line)] bg-white/70 hover:bg-white"
               }`}
             >
               {index + 1}. {item}
             </button>
           ))}
-        </div>
+        </nav>
       </aside>
       <section className="card-border bg-surface rounded-[1.8rem] p-6">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4" aria-live="polite">
           <div>
-            <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-strong)]">Step {step + 1}</div>
+            <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-strong)]">Step {step + 1} of {steps.length}</div>
             <h2 className="display-font mt-2 text-3xl tracking-[-0.04em]">{steps[step]}</h2>
           </div>
           <div className="rounded-full bg-[rgba(217,93,57,0.1)] px-4 py-2 text-sm font-semibold text-[var(--accent-strong)]">
@@ -65,15 +66,16 @@ export function CreateCampaignWizard() {
         <div className="mt-6 flex flex-wrap justify-between gap-3">
           <button
             type="button"
+            disabled={step === 0}
             onClick={() => setStep((current) => Math.max(0, current - 1))}
-            className="rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-semibold"
+            className="rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-semibold transition hover:bg-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
           >
             Previous
           </button>
           <button
             type="button"
             onClick={() => setStep((current) => Math.min(steps.length - 1, current + 1))}
-            className="rounded-full bg-[var(--accent-strong)] px-5 py-2.5 text-sm font-semibold text-white"
+            className="rounded-full bg-[var(--accent-strong)] px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)]"
           >
             {step === steps.length - 1 ? "Publish demo brief" : "Next step"}
           </button>

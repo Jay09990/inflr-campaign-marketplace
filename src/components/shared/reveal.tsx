@@ -14,6 +14,10 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
   useEffect(() => {
     if (!ref.current) return;
 
+    // Performance optimization: skip GSAP tween allocation and ticker overhead if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    if (prefersReducedMotion) return;
+
     // Use gsap.context to properly scope and clean up GSAP animations on unmount/re-render.
     // Reverting context kills active tweens and prevents memory leaks / lingering frame callbacks.
     const ctx = gsap.context(() => {

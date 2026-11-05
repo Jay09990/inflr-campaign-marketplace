@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const tabs = {
   Overview: ["Campaign KPI: coupon visits + DMs", "Owner brief locked", "KP strategy approved"],
@@ -9,15 +9,21 @@ const tabs = {
   Deliverables: ["2 reels approved", "1 story pack pending", "Owner feedback applied"],
   Chat: ["Draft captions are locked.", "Need final export by tonight.", "Owner wants stronger coupon CTA."],
   Payments: ["Owner payment confirmed", "KP payout queued", "Influencer payout release after sign-off"]
-};
+} as const;
 
-export function WorkspaceTabs() {
-  const [active, setActive] = useState<keyof typeof tabs>("Overview");
+type TabKey = keyof typeof tabs;
+
+// Performance optimization: Hoist static tab keys outside render cycle to avoid repeated array allocations
+const tabKeys = Object.keys(tabs) as TabKey[];
+
+// Performance optimization: Memoize component to avoid re-renders when parent views or wrappers re-render
+export const WorkspaceTabs = memo(function WorkspaceTabs() {
+  const [active, setActive] = useState<TabKey>("Overview");
 
   return (
     <div className="card-border bg-surface rounded-[1.8rem] p-6">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Workspace sections">
-        {Object.keys(tabs).map((tab) => {
+        {tabKeys.map((tab) => {
           const tabId = `tab-${tab.toLowerCase()}`;
           const panelId = `panel-${tab.toLowerCase()}`;
           const isSelected = active === tab;
@@ -54,4 +60,4 @@ export function WorkspaceTabs() {
       </div>
     </div>
   );
-}
+});

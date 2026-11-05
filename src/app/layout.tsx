@@ -5,9 +5,23 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://campaignmarketplace
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Campaign Marketplace MVP",
+  title: {
+    default: "Campaign Marketplace | Outcomes Over Creator Chaos",
+    template: "%s | Campaign Marketplace",
+  },
   description:
-    "A frontend MVP for a campaign marketplace connecting owners, Knowledge Persons, and influencers.",
+    "A three-sided campaign marketplace connecting business owners, Knowledge Persons, and creator squads to deliver targeted outcomes.",
+  openGraph: {
+    title: "Campaign Marketplace | Outcomes Over Creator Chaos",
+    description:
+      "A three-sided campaign marketplace connecting business owners, Knowledge Persons, and creator squads to deliver targeted outcomes.",
+    siteName: "Campaign Marketplace",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

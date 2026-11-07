@@ -1,9 +1,34 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Pitch-Led Influencer Marketing",
+  description:
+    "A three-sided marketplace where local brands buy campaign outcomes, Knowledge Persons pitch strategy, and creator squads execute together.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Pitch-Led Influencer Marketing",
+    description:
+      "A three-sided marketplace where local brands buy campaign outcomes, Knowledge Persons pitch strategy, and creator squads execute together.",
+    url: "/",
+    siteName: "Campaign Marketplace",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campaign Marketplace | Pitch-Led Influencer Marketing",
+    description:
+      "A three-sided marketplace where local brands buy campaign outcomes, Knowledge Persons pitch strategy, and creator squads execute together.",
+  },
+};
 
 export default function HomePage() {
   return (

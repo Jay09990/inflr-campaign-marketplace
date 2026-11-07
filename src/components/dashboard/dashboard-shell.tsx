@@ -48,7 +48,7 @@ export function DashboardShell({ role, title, subtitle, nav, children }: Dashboa
             </p>
           </div>
         </aside>
-        <main className="space-y-4">
+        <main id="main-content" tabIndex={-1} className="outline-none space-y-4">
           <header className="card-border bg-surface rounded-[2rem] px-6 py-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>

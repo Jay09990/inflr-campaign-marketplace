@@ -6,7 +6,7 @@ import { workspaceTimeline } from "@/data/mock";
 
 export default function WorkspacePage() {
   return (
-    <main className="min-h-screen px-4 py-4 md:px-6">
+    <main id="main-content" tabIndex={-1} className="min-h-screen outline-none px-4 py-4 md:px-6">
       <div className="mx-auto max-w-[1600px] space-y-4">
         <Reveal>
           <section className="card-border bg-surface relative overflow-hidden rounded-[2rem] px-6 py-8 md:px-8">

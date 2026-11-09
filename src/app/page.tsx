@@ -1,9 +1,34 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+export const metadata: Metadata = {
+  title: "Influencer Marketing Platform | Campaign Marketplace",
+  description:
+    "Connect local brands with niche Knowledge Persons and micro-influencers to pitch, assemble, and execute outcome-driven marketing campaigns.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Influencer Marketing Platform | Campaign Marketplace",
+    description:
+      "Connect local brands with niche Knowledge Persons and micro-influencers to pitch, assemble, and execute outcome-driven marketing campaigns.",
+    url: "/",
+    siteName: "Campaign Marketplace",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Influencer Marketing Platform | Campaign Marketplace",
+    description:
+      "Connect local brands with niche Knowledge Persons and micro-influencers to pitch, assemble, and execute outcome-driven marketing campaigns.",
+  },
+};
 
 export default function HomePage() {
   return (

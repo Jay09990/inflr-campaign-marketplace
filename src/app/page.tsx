@@ -1,9 +1,35 @@
+import type { Metadata } from "next";
 ﻿import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
+
+// Homepage metadata: unique title, description, canonical, and social sharing tags
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Micro-Influencer Campaigns Led by Strategists",
+  description:
+    "Connect business owners, Knowledge Persons, and creator squads to execute high-impact local marketing campaigns without agency bloat.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Micro-Influencer Campaigns Led by Strategists",
+    description:
+      "Connect business owners, Knowledge Persons, and creator squads to execute high-impact local marketing campaigns without agency bloat.",
+    url: "/",
+    siteName: "Campaign Marketplace",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campaign Marketplace | Micro-Influencer Campaigns Led by Strategists",
+    description:
+      "Connect business owners, Knowledge Persons, and creator squads to execute high-impact local marketing campaigns without agency bloat.",
+  },
+};
 
 export default function HomePage() {
   return (

@@ -1,13 +1,61 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Panel } from "@/components/dashboard/panel";
 import { Hero } from "@/components/marketing/hero";
 import { PublicShell } from "@/components/marketing/public-shell";
 import { Reveal } from "@/components/shared/reveal";
 import { faqItems, pricingPlans, trustPillars } from "@/data/mock";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://campaignmarketplace.com";
+
+export const metadata: Metadata = {
+  title: "Campaign Marketplace | Strategy-Led Influencer Marketing",
+  description:
+    "Connect business owners, Knowledge Persons, and influencers in a structured three-sided marketplace for high-ROI campaigns.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Campaign Marketplace | Strategy-Led Influencer Marketing",
+    description:
+      "Connect business owners, Knowledge Persons, and influencers in a structured three-sided marketplace for high-ROI campaigns.",
+    url: "/",
+    type: "website",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Campaign Marketplace",
+      description:
+        "A three-sided campaign marketplace connecting owners, Knowledge Persons, and influencers.",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Campaign Marketplace",
+      url: siteUrl,
+      description:
+        "Three-sided marketing platform turning campaign briefs into high-impact micro-agency executions.",
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <PublicShell>
+      {/* Structured Data: WebSite & Organization for search and AI discovery */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
       <section id="how-it-works" className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
         <Reveal>

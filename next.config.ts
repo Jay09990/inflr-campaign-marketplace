@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Security enhancement: disable the 'X-Powered-By: Next.js' header
+  // to avoid exposing underlying technology and version fingerprinting.
+  poweredByHeader: false,
   async headers() {
     return [
       {
